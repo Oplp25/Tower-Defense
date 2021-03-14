@@ -10,13 +10,15 @@ public class enemy : MonoBehaviour
     public int healthCurrent;
     public int damage;
     public int range;
+    public int drops;
     public string[] targetList = { "castle", "defenders", "any", "rangedTwo", "rangedOne", "melee" };
     private string PreferredTargets;
-    public enemy(int aHeathTotal, int aDamage, int aRange, string aPreferredTargets)
+    public enemy(int aHeathTotal, int aDamage, int aDrops, int aRange, string aPreferredTargets)
     {
         healthTotal = aHeathTotal;
         healthCurrent = healthTotal;
         damage = aDamage;
+        drops = aDrops;
         range = aRange;
         PreferredTargets = aPreferredTargets;
     }
