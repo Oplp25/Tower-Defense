@@ -5,7 +5,7 @@ using UnityEngine;
 public class orc : enemy
 {
 
-    public orc(int aHeathTotal, int aDamage, int aDrops, int aRange, int aSpeed, string aPreferredTargets) :base(aHeathTotal, aDamage, aDrops, aRange, aSpeed, aPreferredTargets)
+    public orc()
     {
         this.healthTotal = 25;
         this.damage = 5;

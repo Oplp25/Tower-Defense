@@ -14,16 +14,7 @@ public class enemy : MonoBehaviour
     public int speed;
     public string[] targetList = { "castle", "defenders", "any", "rangedTwo", "rangedOne", "melee" };
     private string PreferredTargets;
-    public enemy(int aHeathTotal, int aDamage, int aDrops, int aRange, int aSpeed, string aPreferredTargets)
-    {
-        healthTotal = aHeathTotal;
-        healthCurrent = healthTotal;
-        damage = aDamage;
-        drops = aDrops;
-        range = aRange;
-        speed = aSpeed;
-        PreferredTargets = aPreferredTargets;
-    }
+
 
     public string preferredTargets
     {
@@ -45,4 +36,8 @@ public class enemy : MonoBehaviour
     public void takeDamage() { }
     public void reachedCastle() { }
     public void death() { }
+    public void Update()
+    {
+        
+    }
 }

@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class enemySpawner : MonoBehaviour
+public class L1W1 : MonoBehaviour
 {
-
-    public GameObject enemy;
+    // Start is called before the first frame update
     void Start()
     {
-        
+       for (int i=0;i<4;i++)
+            {
+                orcSpawner.spawnOrc();
+            }
     }
 
     // Update is called once per frame
