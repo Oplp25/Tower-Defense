@@ -5,8 +5,7 @@ using UnityEngine;
 
 public class enemy : MonoBehaviour
 {
-    // Start is called before the first frame update
-
+    
     public int healthTotal;
     public int healthCurrent;
     public int damage;
@@ -38,19 +37,8 @@ public class enemy : MonoBehaviour
 
             }
     }
-    void Start()
-    {
-        
-    }
-
     public void attack() { }
     public void takeDamage() { }
     public void reachedCastle() { }
     public void death() { }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
