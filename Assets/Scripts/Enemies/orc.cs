@@ -5,7 +5,7 @@ using UnityEngine;
 public class orc : enemy
 {
 
-    public orc()
+    public orc Init(Vector3[] aLevelCoords)
     {
         this.healthTotal = 25;
         this.damage = 5;
@@ -13,14 +13,8 @@ public class orc : enemy
         this.range = 0;
         this.speed = 1;
         this.preferredTargets = "defenders";
-    }
-    void Start()
-    {
-        
+        this.levelCoords = aLevelCoords;
+        return this;
     }
 
-    void Update()
-    {
-        
-    }
 }

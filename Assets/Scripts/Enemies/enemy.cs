@@ -12,10 +12,16 @@ public class enemy : MonoBehaviour
     public int range;
     public int drops;
     public int speed;
+    public bool attacking = false;
+    public Vector3 coordHeadingTo;
+    public Vector3[] levelCoords;
     public string[] targetList = { "castle", "defenders", "any", "rangedTwo", "rangedOne", "melee" };
     private string PreferredTargets;
 
-
+    /*private void Awake()
+    {
+        this.Init();
+    }*/
     public string preferredTargets
     {
         get { return PreferredTargets; }
@@ -32,12 +38,15 @@ public class enemy : MonoBehaviour
 
             }
     }
+    public void canAttack() { }
+    public void move() { }
     public void attack() { }
     public void takeDamage() { }
     public void reachedCastle() { }
     public void death() { }
     public void Update()
     {
-        
+        canAttack();
+        move();
     }
 }

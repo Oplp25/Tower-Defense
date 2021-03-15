@@ -8,14 +8,16 @@ public class orcSpawner : MonoBehaviour
     public static GameObject spawnPrefab;
     public GameObject ihateyouall;
     public static List<GameObject> orcsCurrentlySpawned = new List<GameObject>();
+    public static List<orc> orcInstances = new List<orc>();
     void Start()
     {
         spawnPrefab = ihateyouall;
     }
 
-    public static void spawnOrc()
+    public static void spawnOrc(Vector3[] aLevelCoords)
     {
         orcsCurrentlySpawned.Add(Instantiate(spawnPrefab, spawnArea, Quaternion.identity));
+        orcInstances.Add(orcsCurrentlySpawned[-1].GetComponent<orc>().Init(aLevelCoords));
     }
 
 
