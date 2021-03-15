@@ -14,10 +14,10 @@ public class orcSpawner : MonoBehaviour
         spawnPrefab = ihateyouall;
     }
 
-    public static void spawnOrc(Vector3[] aLevelCoords)
+    public static void spawnOrc(List<Vector3> aLevelCoords)
     {
         orcsCurrentlySpawned.Add(Instantiate(spawnPrefab, spawnArea, Quaternion.identity));
-        orcInstances.Add(orcsCurrentlySpawned[-1].GetComponent<orc>().Init(aLevelCoords));
+        orcInstances.Add(orcsCurrentlySpawned[orcsCurrentlySpawned.Count-1].GetComponent<orc>().Init(aLevelCoords));
     }
 
 

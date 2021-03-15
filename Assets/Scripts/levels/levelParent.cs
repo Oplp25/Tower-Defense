@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class levelParent : MonoBehaviour
 {
-    public Vector3[] coordsToMove=new Vector3[5];
+    public List<Vector3> coordsToMove;
 
 }

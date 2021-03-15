@@ -12,16 +12,15 @@ public class enemy : MonoBehaviour
     public int range;
     public int drops;
     public int speed;
+    public float moveSpeed;
+    public int vectorOn = 0;
     public bool attacking = false;
     public Vector3 coordHeadingTo;
-    public Vector3[] levelCoords;
+    public List<Vector3> levelCoords;
+    public Vector3 moveDirection;
     public string[] targetList = { "castle", "defenders", "any", "rangedTwo", "rangedOne", "melee" };
     private string PreferredTargets;
 
-    /*private void Awake()
-    {
-        this.Init();
-    }*/
     public string preferredTargets
     {
         get { return PreferredTargets; }
@@ -39,14 +38,53 @@ public class enemy : MonoBehaviour
             }
     }
     public void canAttack() { }
-    public void move() { }
+    public void move() 
+    {
+        this.moveDirection = transform.position - this.coordHeadingTo;
+        if (this.moveDirection.x==0)
+        {
+            if (this.moveDirection.y >= 0)
+            {
+                transform.position = new Vector3(transform.position.x, transform.position.y - this.moveSpeed);
+            }
+            else
+            {
+                transform.position = new Vector3(transform.position.x, transform.position.y - this.moveSpeed);
+            }
+        }
+        else
+        {
+            if (moveDirection.x >= 0)
+            {
+                transform.position = new Vector3(transform.position.x - this.moveSpeed, transform.position.y);
+            }
+            else
+            {
+                transform.position = new Vector3(transform.position.x + this.moveSpeed, transform.position.y);
+            }
+        }
+    }
     public void attack() { }
     public void takeDamage() { }
-    public void reachedCastle() { }
+    public void reachedCastle() 
+    {
+        Destroy(gameObject);
+    }
     public void death() { }
     public void Update()
     {
+        Vector3 x = new Vector3(Mathf.Round(transform.position.x * 100f) / 100f, Mathf.Round(transform.position.y * 100f) / 100f);
+        if (x==this.coordHeadingTo)
+        {
+            this.vectorOn++;
+            if (this.vectorOn > this.levelCoords.Count)
+            {
+                reachedCastle();
+            }
+            this.coordHeadingTo = this.levelCoords[this.vectorOn];
+        }
         canAttack();
         move();
+        Debug.Log(x);
     }
 }

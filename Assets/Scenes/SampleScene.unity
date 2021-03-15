@@ -1978,6 +1978,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac63a8e02159d13438c3f6068b001938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coordsToMove:
+  - {x: 6, y: 9, z: 0}
+  - {x: 8, y: 9, z: 0}
+  - {x: 8, y: 3, z: 0}
+  - {x: 14, y: 3, z: 0}
+  - {x: 14, y: 1, z: 0}
 --- !u!1001 &1879547860
 PrefabInstance:
   m_ObjectHideFlags: 0
