@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6735898718934009495}
   - component: {fileID: 1907784038605685429}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: orcPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -100,4 +100,10 @@ MonoBehaviour:
   range: 0
   drops: 0
   speed: 0
+  moveSpeed: 0
+  vectorOn: 0
+  attacking: 0
+  coordHeadingTo: {x: 0, y: 0, z: 0}
+  levelCoords: []
+  moveDirection: {x: 0, y: 0, z: 0}
   targetList: []

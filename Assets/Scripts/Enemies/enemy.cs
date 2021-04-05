@@ -40,25 +40,26 @@ public class enemy : MonoBehaviour
     public void canAttack() { }
     public void move() 
     {
+        this.transform.position = new Vector3(Mathf.Round(this.transform.position.x*100f)/100f, Mathf.Round(this.transform.position.y*100f)/100f);
         this.moveDirection = transform.position - this.coordHeadingTo;
-        if (this.moveDirection.x==0)
+        if (this.moveDirection.x==0.0)
         {
-            if (this.moveDirection.y >= 0)
+            if (this.moveDirection.y >= 0.0)
             {
                 transform.position = new Vector3(transform.position.x, transform.position.y - this.moveSpeed);
             }
-            else
+            else if(this.moveDirection.y < 0.0)
             {
-                transform.position = new Vector3(transform.position.x, transform.position.y - this.moveSpeed);
+                transform.position = new Vector3(transform.position.x, transform.position.y + this.moveSpeed);
             }
         }
-        else
+        else if (this.moveDirection.y==0.0)
         {
-            if (moveDirection.x >= 0)
+            if (moveDirection.x >= 0.0)
             {
                 transform.position = new Vector3(transform.position.x - this.moveSpeed, transform.position.y);
             }
-            else
+            else if (this.moveDirection.x < 0.0)
             {
                 transform.position = new Vector3(transform.position.x + this.moveSpeed, transform.position.y);
             }
@@ -73,8 +74,7 @@ public class enemy : MonoBehaviour
     public void death() { }
     public void Update()
     {
-        Vector3 x = new Vector3(Mathf.Round(transform.position.x * 100f) / 100f, Mathf.Round(transform.position.y * 100f) / 100f);
-        if (x==this.coordHeadingTo)
+        if (this.transform.position==this.coordHeadingTo)
         {
             this.vectorOn++;
             if (this.vectorOn > this.levelCoords.Count)
@@ -85,6 +85,5 @@ public class enemy : MonoBehaviour
         }
         canAttack();
         move();
-        Debug.Log(x);
     }
 }
