@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class orcSpawner : MonoBehaviour
 {
-    public static Vector3 spawnArea = new Vector3(6, 9);
-    public static GameObject spawnPrefab;
-    public GameObject ihateyouall;
+    private static Vector3 spawnArea = new Vector3(6, 9);
+    private static GameObject spawnPrefab;
+    [SerializeField]private GameObject ihateyouall;
     public static List<GameObject> orcsCurrentlySpawned = new List<GameObject>();
     public static List<orc> orcInstances = new List<orc>();
     void Start()

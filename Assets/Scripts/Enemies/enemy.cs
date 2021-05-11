@@ -69,9 +69,12 @@ public class enemy : MonoBehaviour
     public void takeDamage() { }
     public void reachedCastle() 
     {
+        death();
+    }
+    public void death()
+    {
         Destroy(gameObject);
     }
-    public void death() { }
     public void Update()
     {
         if (this.transform.position==this.coordHeadingTo)
