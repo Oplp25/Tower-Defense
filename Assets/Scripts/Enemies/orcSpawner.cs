@@ -17,6 +17,7 @@ public class orcSpawner : MonoBehaviour
     public static void spawnOrc(List<Vector3> aLevelCoords)
     {
         orcsCurrentlySpawned.Add(Instantiate(spawnPrefab, spawnArea, Quaternion.identity));
+        levelParent.enemiesCurrentlySpawned.Add(orcsCurrentlySpawned[orcsCurrentlySpawned.Count-1]);
         orcInstances.Add(orcsCurrentlySpawned[orcsCurrentlySpawned.Count-1].GetComponent<orc>().Init(aLevelCoords));
     }
 

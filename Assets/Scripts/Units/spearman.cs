@@ -19,9 +19,5 @@ public class spearman : unit
         this.positioning = true;
     }
 
-    public void Update()
-    {
-       positioningMethod();
-    }
 
 }

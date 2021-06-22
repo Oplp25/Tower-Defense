@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class enemy : MonoBehaviour
 {
-    
     public int healthTotal;
     public int healthCurrent;
     public int damage;
@@ -18,9 +17,15 @@ public class enemy : MonoBehaviour
     public Vector3 coordHeadingTo;
     public List<Vector3> levelCoords;
     public Vector3 moveDirection;
+    public SpriteRenderer sprite;
     public string[] targetList = { "castle", "defenders", "any", "rangedTwo", "rangedOne", "melee" };
     private string PreferredTargets;
 
+
+    public void Start()
+    {
+        sprite = GetComponent<SpriteRenderer>();
+    }
     public string preferredTargets
     {
         get { return PreferredTargets; }
@@ -66,13 +71,20 @@ public class enemy : MonoBehaviour
         }
     }
     public void attack() { }
-    public void takeDamage() { }
+    public void takeDamage(int damage)
+    {
+        sprite.color = new Color(1,0,0,1);
+        this.healthCurrent -= damage;
+    }
+
     public void reachedCastle() 
     {
         death();
     }
     public void death()
     {
+        levelParent.enemiesCurrentlySpawned.Remove(gameObject);
+        orcSpawner.orcsCurrentlySpawned.Remove(gameObject);
         Destroy(gameObject);
     }
     public void Update()
