@@ -12,7 +12,8 @@ public class orc : enemy
         this.drops = 1;
         this.range = 0;
         this.speed = 1;
-        this.moveSpeed = 0.01f * this.speed;
+        this.healthCurrent = this.healthTotal;
+        this.moveSpeed = 0.005f * this.speed;
         this.preferredTargets = "defenders";
         this.levelCoords = aLevelCoords;
         this.coordHeadingTo = this.levelCoords[0];

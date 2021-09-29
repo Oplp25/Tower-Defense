@@ -30,10 +30,6 @@ public class unit : MonoBehaviour
         Vector3 p7 = new Vector3(this.transform.position.x - 2, this.transform.position.y - 2);
         Vector3 p8 = new Vector3(this.transform.position.x - 2, this.transform.position.y + 2);
         this.cellsAround =new Vector3[8]{ p1, p2, p3, p4, p5, p6, p7, p8 };
-        foreach (Vector3 i in this.cellsAround)
-        {
-            Debug.Log(i);
-        }
     }
     public void loopedCanAttack(GameObject toCheck)
     {

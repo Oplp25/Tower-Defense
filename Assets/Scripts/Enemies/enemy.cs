@@ -20,7 +20,8 @@ public class enemy : MonoBehaviour
     public SpriteRenderer sprite;
     public string[] targetList = { "castle", "defenders", "any", "rangedTwo", "rangedOne", "melee" };
     private string PreferredTargets;
-
+    private bool redColour;
+    private float startedDamage;
 
     public void Start()
     {
@@ -45,7 +46,7 @@ public class enemy : MonoBehaviour
     public void canAttack() { }
     public void move() 
     {
-        this.transform.position = new Vector3(Mathf.Round(this.transform.position.x*100f)/100f, Mathf.Round(this.transform.position.y*100f)/100f);
+        this.transform.position = new Vector3(Mathf.Round(this.transform.position.x*1000f)/1000f, Mathf.Round(this.transform.position.y*1000f)/1000f);
         this.moveDirection = transform.position - this.coordHeadingTo;
         if (this.moveDirection.x==0.0)
         {
@@ -73,8 +74,14 @@ public class enemy : MonoBehaviour
     public void attack() { }
     public void takeDamage(int damage)
     {
-        sprite.color = new Color(1,0,0,1);
-        this.healthCurrent -= damage;
+        if (!this.redColour)
+        {
+            sprite.color = new Color(1, 0, 0, 1);
+            this.redColour = true;
+            startedDamage = Time.time;
+            this.healthCurrent -= damage;
+            Debug.Log("Taken Damage, " + this.healthCurrent);
+        } 
     }
 
     public void reachedCastle() 
@@ -97,6 +104,18 @@ public class enemy : MonoBehaviour
                 reachedCastle();
             }
             this.coordHeadingTo = this.levelCoords[this.vectorOn];
+        }
+        if (this.redColour)
+        {
+            if (Time.time - startedDamage>=1.0f)
+            {
+                sprite.color = new Color(1,1,1,1);
+                this.redColour = false;
+            }
+        }
+        if (this.healthCurrent <= 0)
+        {
+            death();
         }
         canAttack();
         move();
