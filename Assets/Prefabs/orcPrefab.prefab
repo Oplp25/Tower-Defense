@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 5480966484193315291}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6, y: 9, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.03, y: 0.03, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -47,6 +47,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -106,4 +107,5 @@ MonoBehaviour:
   coordHeadingTo: {x: 0, y: 0, z: 0}
   levelCoords: []
   moveDirection: {x: 0, y: 0, z: 0}
+  sprite: {fileID: 0}
   targetList: []
